@@ -7,7 +7,7 @@ Tech Used : Nodejs, Express JS and Mysql
 
 ### `MySQL configuration`
 Please create database with name simulateur 
-You will find the database separatly from the folder
+You will find the database separatly from the folder simulateur.sql
 to make the changes in db conifg follow this directory `config/db.config.js` file.
 
 In the project directory, you can run:
