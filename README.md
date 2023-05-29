@@ -1,10 +1,14 @@
-## node-mysql-crud-app
-In this repo I have created the restful api using nodejs, express and mysql
+## Api for Simulateur Credit 
+In this repo I have created the restful api for the Simulateur Credit App
+this is the first version of the api V0.1
+Tech Used : Nodejs, Express JS and Mysql
 
-### Author : Rahul Gupta
+### Author : Zakaria AADEL
 
 ### `MySQL configuration`
-Please create database and make the changes in the `config/db.config.js` file.
+Please create database with name simulateur 
+You will find the database separatly from the folder
+to make the changes in db conifg follow this directory `config/db.config.js` file.
 
 In the project directory, you can run:
 
