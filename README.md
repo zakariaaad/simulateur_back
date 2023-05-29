@@ -1,4 +1,4 @@
-## Api for Simulateur Credit 
+## Backend Api for Simulateur Credit 
 In this repo I have created the restful api for the Simulateur Credit App
 this is the first version of the api V0.1
 Tech Used : Nodejs, Express JS and Mysql
