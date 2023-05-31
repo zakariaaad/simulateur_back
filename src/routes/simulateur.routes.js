@@ -6,7 +6,7 @@ const simulateurController = require('../controllers/simulateur.controller');
 router.get('/', simulateurController.findAll);
 
 // Create a new simulation
-router.post('/', simulateurController.create);
+router.post('/addsim', simulateurController.create);
 
 // Retrieve a single simulation with id
 router.get('/:id', simulateurController.findById);

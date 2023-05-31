@@ -3,6 +3,7 @@ var dbConn = require('./../../config/db.config');
 
 //Employee object create
 var Simulateur = function(simulateur){
+    this.type_produit_simulation     = simulateur.type_produit_simulation;
     this.prix_produit_simulation     = simulateur.prix_produit_simulation;
     this.duree_simulation      = simulateur.duree_simulation;
     this.type_taux_simulation          = simulateur.type_taux_simulation;
