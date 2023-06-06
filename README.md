@@ -1,14 +1,14 @@
 ## Backend Api for MySimulateur Credit 
 In this repo I have created the restful api for the MySimulateur Credit App
 it's an application for creating credit simulations for individuals on real estate, vehicles, etc.
-this is the first version of the api V0.1 just Backend -server side-
+this is the first version of the api V0.1 just Backend -Server Side-
 Tech Used : Nodejs, Express JS and Mysql
-
+Also for Authentification i've used JWT library for login and security
 ### Author : Zakaria AADEL
 
 ### `MySQL configuration`
-Please create database with name simulateur 
-You will find the database separatly from the folder simulateur.sql
+Please create database with name simulateur Mysql
+You will find the database separatly from the folder filename.sql
 to make the changes in db conifg follow this directory `config/db.config.js` file.
 you have to import database in phpmyadmin
 
