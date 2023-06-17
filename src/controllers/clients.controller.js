@@ -1,60 +1,74 @@
 "use strict";
 
-const Clients = require("../models/clients.model");
+const Client = require("../models/clients.model");
 
 exports.findAll = function (req, res) {
-  Clients.Client.findAll().then(clients => {
-    console.log("find all clients", clients);
-    res.send(clients);
-  }).catch(err => {
-    res.send(err);
-  });
-};
-
-
-exports.create = function(req, res) {
-    const new_Clients = new Clients(req.body);
-
-    //handles null error 
-   if(req.body.constructor === Object && Object.keys(req.body).length === 0){
-        res.status(400).send({ error:true, message: 'Please provide all required field' });
-    }else{
-        Clients.create(new_Clients, function(err, Clients) {
-            if (err)
-            res.send(err);
-            res.json({error:false,message:"Clients added successfully!",data:Clients});
-        });
-    }
-};
-
-
-exports.findById = function(req, res) {
-    Clients.findById(req.params.id, function(err, Clients) {
-        if (err)
-        res.send(err);
-        res.json(Clients);
+  Client.findAll()
+    .then((clients) => {
+      console.log("find all clients", clients);
+      res.send(clients);
+    })
+    .catch((err) => {
+      res.send(err);
     });
 };
 
+exports.create = function (req, res) {
+  const client = req.body;
 
-exports.update = function(req, res) {
-    if(req.body.constructor === Object && Object.keys(req.body).length === 0){
-        res.status(400).send({ error:true, message: 'Please provide all required field' });
-    }else{
-        Clients.update(req.params.id, new Clients(req.body), function(err, Clients) {
-            if (err)
-            res.send(err);
-            res.json({ error:false, message: 'Clients successfully updated' });
-        });
-    }
-  
+  if (client.constructor === Object && Object.keys(client).length === 0) {
+    res
+      .status(400)
+      .send({ error: true, message: "Please provide all required field" });
+    return;
+  }
+
+  Client.create(client)
+    .then((data) => {
+      res.json({ error: false, message: "Client added successfully!", data });
+    })
+    .catch((err) => res.send(err));
 };
 
+exports.findById = function (req, res) {
+  const id = req.params.id;
 
-exports.delete = function(req, res) {
-  Clients.delete( req.params.id, function(err, Clients) {
-    if (err)
-    res.send(err);
-    res.json({ error:false, message: 'Clients successfully deleted' });
-  });
+  Client.findAll({
+    where: { id_client: id },
+  })
+    .then((data) => res.json(data))
+    .catch((err) => res.send(err));
+};
+
+exports.update = function (req, res) {
+  const id = req.params.id;
+  const updatedClient = req.body;
+  if (
+    updatedClient.constructor === Object &&
+    Object.keys(updatedClient).length === 0
+  ) {
+    res
+      .status(400)
+      .send({ error: true, message: "Please provide all required field" });
+    return;
+  }
+
+  Client.update(updatedClient, {
+    where: { id_client: id },
+  })
+    .then(() =>
+      res.json({ error: false, message: "Clients successfully updated" })
+    )
+    .catch((err) => res.send(err));
+};
+
+exports.delete = function (req, res) {
+  const id = req.params.id;
+  Client.destroy({
+    where: { id_client: id },
+  })
+    .then(() =>
+      res.json({ error: false, message: "Clients successfully deleted" })
+    )
+    .catch((err) => res.send(err));
 };
