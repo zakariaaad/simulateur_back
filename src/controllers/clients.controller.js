@@ -1,14 +1,13 @@
-'use strict';
+"use strict";
 
-const Clients = require('../models/clients.model');
+const Clients = require("../models/clients.model");
 
-exports.findAll = function(req, res) {
-  Clients.findAll(function(err, Clients) {
-    console.log('controller')
-    if (err)
+exports.findAll = function (req, res) {
+  Clients.Client.findAll().then(clients => {
+    console.log("find all clients", clients);
+    res.send(clients);
+  }).catch(err => {
     res.send(err);
-    console.log('res', Clients);
-    res.send(Clients);
   });
 };
 
