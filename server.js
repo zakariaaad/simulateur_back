@@ -1,3 +1,6 @@
+// load environment variables from .env file into process.env
+require('dotenv').config();
+
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
@@ -30,5 +33,6 @@ app.use('/api/user', userRoutes)
 
 // listen for requests
 app.listen(port, () => {
+  console.log(process.env.PORT)
   console.log(`Server is listening on port ${port}`);
 });
