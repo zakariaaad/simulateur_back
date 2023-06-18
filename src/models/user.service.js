@@ -1,5 +1,5 @@
 
-const dbConn = require('./../../config/db.config');
+const { dbConn } = require('./../../config/db.config');
 module.exports = {
   create: (data, callBack) => {
     dbConn.query(

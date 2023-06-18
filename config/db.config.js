@@ -23,6 +23,6 @@ const sequelize = new Sequelize(process.env.DB_NAME, process.env.DB_USERNAME, pr
 sequelize
   .authenticate()
   .then(() => console.log("Database Connected!"))
-  .catch(() => console.error("Unable to connect to the database: ", error));
+  .catch(error => console.error("Unable to connect to the database: ", error));
 
 module.exports = { dbConn, sequelize };

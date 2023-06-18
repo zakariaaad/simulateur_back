@@ -1,5 +1,5 @@
 'user strict';
-var dbConn = require('./../../config/db.config');
+var { dbConn } = require('./../../config/db.config');
 
 //Employee object create
 var Simulateur = function(simulateur){
