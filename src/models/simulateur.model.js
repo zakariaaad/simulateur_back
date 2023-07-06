@@ -46,7 +46,7 @@ Simulateur.findById = function (id, result) {
     });   
 };
 Simulateur.findAll = function (result) {
-    dbConn.query("Select * from simulation_credit where deleted = 0 ", function (err, res) {
+    dbConn.query("Select * from simulation_credit INNER JOIN clients_credit ON simulation_credit.id_client = clients_credit.id_client where simulation_credit.deleted = 0 ", function (err, res) {
         if(err) {
             console.log("error: ", err);
             result(null, err);
